@@ -9,6 +9,12 @@ import (
 	"strings"
 )
 
+// Идея:
+// Нужно смотреть на то, что сможет ли i - й контейнер
+// поместить в себя m шариков определенного цвета
+// Для этого достаточно посчитать сумму шариков в i - м контейнере
+// И соотнести ее с суммой шариков определенного цвета (отсортировав оба массива)
+
 // main Входная точка для запуска алгоритма
 func main() {
 	containers := GetData() // Получаем контейнеры с шариками
@@ -52,6 +58,7 @@ func Orginize(containers [][]int) bool {
 	slices.Sort(totalBallsInContainer)
 	slices.Sort(totalCertainColors)
 
+	// Смотрим, если наши слайсы равны, значит мы можем выполнить перестановки
 	return slices.Equal(totalBallsInContainer, totalCertainColors)
 }
 
